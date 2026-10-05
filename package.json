@@ -1,0 +1,7 @@
+{"name":"vaultx","private":true,"scripts":{
+"install:all":"npm i && npm i --prefix server && npm i --prefix client",
+"dev":"concurrently -n api,web \"npm run dev --prefix server\" \"npm run dev --prefix client\"",
+"build":"npm i --prefix server && npm i --prefix client --include=dev && npm run build --prefix client",
+"start":"npm start --prefix server",
+"hash":"node server/hash.mjs"},
+"devDependencies":{"concurrently":"^9.0.0"}}

@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: vaultx
+    runtime: node
+    plan: free
+    buildCommand: npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - {key: NODE_ENV, value: production}
+      - {key: SESSION_SECRET, generateValue: true}
+      - {key: ADMIN_EMAIL, sync: false}
+      - {key: ADMIN_PASSWORD_HASH, sync: false}
+      - {key: DATABASE_URL, sync: false}
+      - {key: STORAGE_ENDPOINT, sync: false}
+      - {key: STORAGE_REGION, value: auto}
+      - {key: STORAGE_BUCKET_PUBLIC, sync: false}
+      - {key: STORAGE_BUCKET_PRIVATE, sync: false}
+      - {key: STORAGE_ACCESS_KEY, sync: false}
+      - {key: STORAGE_SECRET_KEY, sync: false}
